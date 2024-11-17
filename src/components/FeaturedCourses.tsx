@@ -1,7 +1,7 @@
-"use client";
-import courseData from "../data/music_cources.json";
-import Link from "next/link";
-import { BackgroundGradient } from "./ui/background-gradient";
+'use client';
+import courseData from '../data/music_cources.json';
+import Link from 'next/link';
+import { BackgroundGradient } from './ui/background-gradient';
 
 interface Courses {
     id: number;
@@ -33,7 +33,9 @@ function FeaturedCourses() {
                 <div className="mt-10 mx-10">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
                         {FeaturedCourses.map((courses: Courses) => (
-                            <div className="flex justify-center">
+                            <div
+                                key={courses.id}
+                                className="flex justify-center">
                                 <BackgroundGradient className="flex flex-col rounded-[22px] bg-white dark:bg-zinc-900 overflow-hidden h-full max-w-sm">
                                     <div className="p-4 sm:p-6 flex flex-col items-center text-center flex-grow">
                                         <p className="text-lg sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">
@@ -43,7 +45,7 @@ function FeaturedCourses() {
                                             {courses.description}
                                         </p>
                                         <Link href={`/courses/${courses.slug}`}>
-                                            {" "}
+                                            {' '}
                                             Learn More
                                         </Link>
                                     </div>
@@ -56,7 +58,7 @@ function FeaturedCourses() {
             <div>
                 <div className="mt-12 text-center">
                     <Link
-                        href={"/courses"}
+                        href={'/courses'}
                         className="px-4 py-2 rounded border border-neutral-600 text-neutral-700 bg-white hover:bg-gray-300 transition duration-200">
                         View All Courses
                     </Link>
